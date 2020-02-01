@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
@@ -10,13 +10,12 @@ import useInitialState from '../hooks/useInitialState';
 
 const API = 'http://localhost:3000/initalState';
 
-const App = () => {
+const Home = () => {
 
   const initialState = useInitialState(API);
 
   return (
-    <div className="App">
-      <Header />
+    <Fragment>
       <Search />
       {
         initialState.mylist.length > 0 &&
@@ -42,9 +41,8 @@ const App = () => {
           }
         </Carousel>
       </Categories>
-      <Footer />
-    </div>
+    </Fragment>
   );
 };
 
-export default App;
+export default Home;
